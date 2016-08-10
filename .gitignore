@@ -1,0 +1,12 @@
+.DS_Store
+.#*
+*.hi
+*.o
+dist
+TAGS
+.cabal-sandbox
+.hpc
+bin
+data/sample-gitowners*.txt
+data/sample.txt
+.stack-work
