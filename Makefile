@@ -48,7 +48,16 @@ fwdense: build
 	$(FWDENSE) 500 +RTS -s
 
 fwdense1: build
-	$(FWDENSE1) 500 +RTS -s -N4
+	stack exec fwdense1 -- 500 +RTS -s -N4
 
 rotate-image: build
 	$(ROTATE_IMG) 4 $$infile $$outfile +RTS -s -N4
+
+fork: build
+	stack exec fork
+
+reminders: build
+	stack exec reminders
+
+logger: build
+	stack exec logger

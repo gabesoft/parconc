@@ -15,12 +15,16 @@ cabal-version:       >=1.10
 
 library
   hs-source-dirs:      src
-  exposed-modules:     Sudoku, ParStream, RepaEx
+  exposed-modules:     Sudoku, ParStream, RepaEx, GetURL, Async, AsyncEx, TimeIt
   build-depends:       base >= 4.7 && < 5
                      , array
+                     , bytestring >= 0.10
+                     , HTTP
+                     , network-uri >= 2.6
                      , monad-par
                      , repa
                      , deepseq >= 1.4
+                     , time
                      , vector >= 0.11
   default-language:    Haskell2010
 
@@ -126,6 +130,33 @@ executable rotateimage
                      , repa
                      , repa-devil
                      , monad-par
+                     , time >= 1.5
+  default-language:    Haskell2010
+
+executable fork
+  hs-source-dirs:      app
+  main-is:             fork.hs
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N -O2
+  build-depends:       base
+                     , parconc
+                     , time >= 1.5
+  default-language:    Haskell2010
+
+executable reminders
+  hs-source-dirs:      app
+  main-is:             reminders.hs
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N -O2
+  build-depends:       base
+                     , parconc
+                     , time >= 1.5
+  default-language:    Haskell2010
+
+executable logger
+  hs-source-dirs:      app
+  main-is:             logger.hs
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N -O2
+  build-depends:       base
+                     , parconc
                      , time >= 1.5
   default-language:    Haskell2010
 
