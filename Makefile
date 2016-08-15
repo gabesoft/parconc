@@ -61,3 +61,6 @@ reminders: build
 
 logger: build
 	stack exec logger
+
+geturlscancel: build
+	stack exec geturlscancel

@@ -1,7 +1,7 @@
--- | Making http requests in parallel
+-- | Making http requests in parallel using STM
 module Main (main) where
 
-import AsyncEx
+import AsyncSTM
 import Data.ByteString as B
 import GetURL
 import Text.Printf
