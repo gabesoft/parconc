@@ -17,5 +17,5 @@ main =
   foldr conc
         (return [])
         (getURL <$> sites) >>=
-  print . (fmap B.length)
+  print . fmap B.length
   where conc ioa ioas = uncurry (:) <$> concurrently ioa ioas
