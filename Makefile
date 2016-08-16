@@ -64,3 +64,9 @@ logger: build
 
 geturlscancel: build
 	stack exec geturlscancel
+
+simpleserver: build
+	stack exec simpleserver -- +RTS -N4
+
+server2: build
+	stack exec server2 -- +RTS -N4
