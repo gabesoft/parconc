@@ -70,3 +70,6 @@ simpleserver: build
 
 server2: build
 	stack exec server2 -- +RTS -N4
+
+chat: build
+	stack exec chat -- +RTS -N4
