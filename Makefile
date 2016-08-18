@@ -88,3 +88,6 @@ findpar3: build
 
 findpar3-log: build
 	stack exec findpar3 -- nonexistent .. +RTS -s -N -l
+
+findpar4: build
+	stack exec findpar4 -- nonexistent .. +RTS -s -N
