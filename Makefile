@@ -73,3 +73,18 @@ server2: build
 
 chat: build
 	stack exec chat -- +RTS -N4
+
+findseq: build
+	stack exec findseq -- nonexistent .. +RTS -s
+
+findpar: build
+	stack exec findpar -- nonexistent .. +RTS -s -N
+
+findpar2: build
+	stack exec findpar2 -- 8 nonexistent .. +RTS -s -N8
+
+findpar3: build
+	stack exec findpar3 -- nonexistent .. +RTS -s -N
+
+findpar3-log: build
+	stack exec findpar3 -- nonexistent .. +RTS -s -N -l

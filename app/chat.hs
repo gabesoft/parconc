@@ -108,7 +108,10 @@ main =
 
 talk :: Handle -> Server -> IO ()
 talk handle server@Server{..} =
-  do hSetNewlineMode handle universalNewlineMode
+  do tId <- myThreadId
+     hSetBuffering stdout NoBuffering
+     putStrLn ("Serving request on thread " ++ show tId)
+     hSetNewlineMode handle universalNewlineMode
      hSetBuffering handle LineBuffering
      readName
   where readName =
