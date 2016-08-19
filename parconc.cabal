@@ -16,6 +16,7 @@ cabal-version:       >=1.10
 library
   hs-source-dirs:      src
   exposed-modules:     Sudoku
+                     , DistribUtils
                      , ParStream
                      , RepaEx
                      , GetURL
@@ -26,14 +27,20 @@ library
                      , WindowManager
   build-depends:       base >= 4.7 && < 5
                      , array
+                     , HTTP
                      , bytestring >= 0.10
                      , containers >= 0.5
-                     , HTTP
-                     , network-uri >= 2.6
-                     , monad-par
-                     , repa
                      , deepseq >= 1.4
+                     , distributed-process
+                     , distributed-process-simplelocalnet
+                     , distributed-static
+                     , monad-par
+                     , network >= 2.6
+                     , network-uri >= 2.6
+                     , network-uri >= 2.6
+                     , repa
                      , stm >= 2.4
+                     , template-haskell >= 2.10
                      , time
                      , vector >= 0.11
   default-language:    Haskell2010
@@ -306,6 +313,81 @@ executable findpar4
                      , time >= 1.5
                      , text
                      , transformers >= 0.4
+  default-language:    Haskell2010
+
+executable ping
+  hs-source-dirs:      app
+  main-is:             ping.hs
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N -O2 -eventlog
+  build-depends:       base
+                     , binary >= 0.7
+                     , template-haskell >= 2.10
+                     , network >= 2.6
+                     , network-uri >= 2.6
+                     , distributed-process
+                     , distributed-process-simplelocalnet
+                     , distributed-static
+                     , parconc
+  default-language:    Haskell2010
+
+executable ping-multi
+  hs-source-dirs:      app
+  main-is:             ping-multi.hs
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N -O2 -eventlog
+  build-depends:       base
+                     , binary >= 0.7
+                     , template-haskell >= 2.10
+                     , network >= 2.6
+                     , network-uri >= 2.6
+                     , distributed-process
+                     , distributed-process-simplelocalnet
+                     , distributed-static
+                     , parconc
+  default-language:    Haskell2010
+
+executable ping-tc
+  hs-source-dirs:      app
+  main-is:             ping-tc.hs
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N -O2 -eventlog
+  build-depends:       base
+                     , binary >= 0.7
+                     , template-haskell >= 2.10
+                     , network >= 2.6
+                     , network-uri >= 2.6
+                     , distributed-process
+                     , distributed-process-simplelocalnet
+                     , distributed-static
+                     , parconc
+  default-language:    Haskell2010
+
+executable ping-tc-merge
+  hs-source-dirs:      app
+  main-is:             ping-tc-merge.hs
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N -O2 -eventlog
+  build-depends:       base
+                     , binary >= 0.7
+                     , template-haskell >= 2.10
+                     , network >= 2.6
+                     , network-uri >= 2.6
+                     , distributed-process
+                     , distributed-process-simplelocalnet
+                     , distributed-static
+                     , parconc
+  default-language:    Haskell2010
+
+executable ping-fail
+  hs-source-dirs:      app
+  main-is:             ping-fail.hs
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N -O2 -eventlog
+  build-depends:       base
+                     , binary >= 0.7
+                     , template-haskell >= 2.10
+                     , network >= 2.6
+                     , network-uri >= 2.6
+                     , distributed-process
+                     , distributed-process-simplelocalnet
+                     , distributed-static
+                     , parconc
   default-language:    Haskell2010
 
 source-repository head

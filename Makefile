@@ -72,7 +72,7 @@ server2: build
 	stack exec server2 -- +RTS -N4
 
 chat: build
-	stack exec chat -- +RTS -N4
+	stack exec chat -- +RTS -N
 
 findseq: build
 	stack exec findseq -- nonexistent .. +RTS -s

@@ -146,9 +146,10 @@ runClient server@Server{..} client@Client{..} =
           atomically $
           do k <- readTVar clientKicked
              case k of
-               Just reason ->
+               Just kickerName ->
                  return $
-                 hPutStrLn clientHandle ("You have been kicked " ++ reason)
+                 hPutStrLn clientHandle
+                           ("You have been kicked by " ++ kickerName)
                Nothing ->
                  do msg <- readTChan clientSendChan
                     return $
